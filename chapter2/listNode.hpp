@@ -27,3 +27,28 @@ ListNode *createListFromInput(int n)
     }
     return head;
 }
+
+ListNode* createCyclicList(const vector<int>& values, int pos) {
+    ListNode* head = nullptr;
+    ListNode* tail = nullptr;
+    ListNode* loopEntry = nullptr;
+
+    for (int i = 0; i < values.size(); ++i) {
+        ListNode* node = new ListNode(values[i]);
+        if (!head) {
+            head = node;
+        } else {
+            tail->next = node;
+        }
+        tail = node;
+        if (i == pos) {
+            loopEntry = node;
+        }
+    }
+
+    if (tail && loopEntry) {
+        tail->next = loopEntry; // サイクルを作る
+    }
+
+    return head;
+}
