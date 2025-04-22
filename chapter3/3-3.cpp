@@ -35,3 +35,18 @@ class SetOfStack {
         return true;
     }
 };
+
+int main() {
+    SetOfStack s;
+    for (int i = 1; i <= 50; i++) {
+        s.push(i);
+    }
+
+    while (!s.empty()) {
+        cout << s.top() << " ";
+        s.pop();
+    }
+
+    cout << endl;
+    return 0;
+}
