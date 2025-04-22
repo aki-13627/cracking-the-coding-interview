@@ -2,11 +2,11 @@
 using namespace std;
 
 class Solution {
-    public:
+   public:
     bool isSubstring(const string& s1, const string& s2) {
         return s1.find(s2) != string::npos;
     }
-    
+
     bool isRotated(const string& s1, const string& s2) {
         if (s1.length() != s2.length() || s1.empty()) return false;
         return isSubstring(s1 + s1, s2);

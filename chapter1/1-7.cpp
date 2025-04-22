@@ -2,10 +2,10 @@
 using namespace std;
 
 class Solution {
-    public:
+   public:
     vector<vector<int>> rotatePicture(vector<vector<int>> pic) {
-        for (int i = 0; i < pic.size() / 2; i ++) {
-            for (int j = 0; j < pic.size(); j ++) {
+        for (int i = 0; i < pic.size() / 2; i++) {
+            for (int j = 0; j < pic.size(); j++) {
                 swap(pic[i][j], pic[pic.size() - 1 - i][j]);
             }
         }
@@ -15,7 +15,7 @@ class Solution {
             }
         }
         return pic;
-        }
+    }
 };
 
 int main() {
@@ -23,7 +23,7 @@ int main() {
     cin >> N;
     vector<vector<int>> pic(N, vector<int>(N));
     for (int i = 0; i < N; i++) {
-        for (int j= 0; j < N; j++){
+        for (int j = 0; j < N; j++) {
             cin >> pic[i][j];
         }
     }
@@ -31,7 +31,7 @@ int main() {
     vector<vector<int>> result = sol.rotatePicture(pic);
 
     for (int i = 0; i < N; i++) {
-        for (int j= 0; j < N; j++){
+        for (int j = 0; j < N; j++) {
             cout << result[i][j] << " ";
         }
         cout << endl;

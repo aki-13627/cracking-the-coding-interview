@@ -1,25 +1,20 @@
 #include <bits/stdc++.h>
+
 #include "./listNode.hpp"
 using namespace std;
 
-class Solution
-{
-public:
-    ListNode *partition(ListNode *node, int x)
-    {
+class Solution {
+   public:
+    ListNode *partition(ListNode *node, int x) {
         ListNode *dummyBefore = new ListNode(-1);
         ListNode *dummyAfter = new ListNode(-1);
         ListNode *before = dummyBefore;
         ListNode *after = dummyAfter;
-        while (node)
-        {
-            if (node->val >= x)
-            {
+        while (node) {
+            if (node->val >= x) {
                 after->next = node;
                 after = after->next;
-            }
-            else
-            {
+            } else {
                 before->next = node;
                 before = before->next;
             }
@@ -28,21 +23,20 @@ public:
 
         after->next = nullptr;
         before->next = dummyAfter->next;
-        ListNode* result =  dummyBefore->next;
-        delete dummyBefore; delete dummyAfter;
+        ListNode *result = dummyBefore->next;
+        delete dummyBefore;
+        delete dummyAfter;
         return result;
     }
 };
 
-int main()
-{
+int main() {
     int n, k;
     cin >> n >> k;
     ListNode *p = createListFromInput(n);
     Solution sol;
     ListNode *res = sol.partition(p, k);
-    while (res)
-    {
+    while (res) {
         cout << res->val << " ";
         res = res->next;
     }
