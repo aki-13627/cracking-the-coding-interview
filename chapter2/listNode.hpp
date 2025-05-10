@@ -10,7 +10,7 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
 };
 
-#endif // LISTNODE_HPP 
+#endif
 
 ListNode *createListFromInput(int n)
 {
